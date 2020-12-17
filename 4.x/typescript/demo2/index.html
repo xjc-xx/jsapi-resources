@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-17 14:27:09
+ * @LastEditTime: 2020-12-17 14:47:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VUE-Project\demo-GIS-ts\jsapi-resources\4.x\typescript\demo2\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+        window.dojoConfig = {
+            packages: [{
+                name: "app",
+                location: locationPath + "/app"
+            }]
+        }
+    </script>
+    <script src="https://js.arcgis.com/4.16"></script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+    <script>
+        require(["app/main"]);
+    </script>
+</body>
+
+</html>

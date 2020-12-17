@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-17 09:11:38
+ * @LastEditTime: 2020-12-17 10:16:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VUE-Project\demo-GIS-ts\jsapi-resources\4.x\typescript\demo\index.html
+-->
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,19 +21,19 @@
         width: 100%;
       }
     </style>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/themes/light/main.css">
-    <script>
-      var locationPath = location.pathname.replace(/\/[^/]*$/, "");
-      window.dojoConfig = {
-        packages: [
-          {
-            name: "app",
-            location: locationPath + "/app"
-          }
-        ]
-      };
-    </script>
-    <script src="https://js.arcgis.com/4.17"></script>
+<link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+<script>
+  var locationPath = location.pathname.replace(/\/[^\/]+$/,"");
+  window.dojoConfig = {
+  packages:[
+    {
+    name:"app",
+    location: locationPath + "/app"
+    }
+  ]
+  }
+</script>
+<script src="https://js.arcgis.com/4.16"></script>
   </head>
   <body>
     <div id="viewDiv"></div>
