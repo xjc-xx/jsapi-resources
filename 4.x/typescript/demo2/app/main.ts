@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-17 14:28:02
- * @LastEditTime: 2020-12-17 14:41:22
+ * @LastEditTime: 2020-12-17 15:25:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \VUE-Project\demo-GIS-ts\jsapi-resources\4.x\typescript\demo2\app\main.ts
@@ -19,7 +19,7 @@ import esri = __esri;
 var USALayer = new MapImageLayer({
     url:
         "http://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer",
-    title: "US Sample Data"
+    title: "美国佬的示例数据"
 });
 
 // Create layer showing sample census data of the United States.
@@ -28,7 +28,7 @@ var USALayer = new MapImageLayer({
 var censusLayer = new MapImageLayer({
     url:
         "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer",
-    title: "US Sample Census",
+    title: "美国佬的人口普查数据",
     visible: false
 });
 
@@ -114,6 +114,19 @@ view.when(function () {
     });
 
     // Event listener that fires each time an action is triggered
+    // 每次trigger-action时触发的事件监听器
+    /*
+    trigger-action
+        Fires after the user clicks on an action or action toggle inside the LayerList widget. This event may be used to define a custom function to execute when particular actions are clicked.
+
+    Properties:
+        action ActionButton|ActionToggle
+        The action clicked by the user.
+
+    item ListItem
+        An item associated with the action.
+
+    */
 
     layerList.on("trigger-action", function (event) {
         // The layer visible in the view at the time of the trigger.
@@ -121,10 +134,14 @@ view.when(function () {
 
         // Capture the action id.
         var id = event.action.id;
-
+        if( event.action.declaredClass == "esri.support.Action.ActionButton"){
+            // 在4.17上存在这个属性 实际上可以忽略该错误
+            // event.action.image = "./assets/logo.png"
+        }
         if (id === "full-extent") {
             // if the full-extent action is triggered then navigate
             // to the full extent of the visible layer
+            
             view.goTo(visibleLayer.fullExtent).catch(function (error) {
                 if (error.name != "AbortError") {
                     console.error(error);
